@@ -1,0 +1,23 @@
+/** Inline script to set Google Consent Mode defaults before any tracking loads */
+export function ConsentModeScript() {
+  const script = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      wait_for_update: 500
+    });
+  `;
+
+  return (
+    <script
+      dangerouslySetInnerHTML={{ __html: script }}
+      suppressHydrationWarning
+    />
+  );
+}
