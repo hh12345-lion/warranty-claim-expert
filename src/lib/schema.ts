@@ -9,7 +9,7 @@ export function organizationSchema() {
     email: COMPANY_EMAIL,
     logo: `${SITE_URL}/icon.svg`,
     description:
-      "UK warranty claim expert witness services for M&A disputes, completion accounts, earn-outs, and locked box claims.",
+      "United Kingdom warranty claim expert witness services for M&A disputes governed by English law, including completion accounts, earn-outs, and locked box claims.",
     areaServed: "GB",
     sameAs: [],
   };

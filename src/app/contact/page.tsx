@@ -4,6 +4,7 @@ import { CTASection } from "@/components/layout/CTASection";
 import { ContentSection } from "@/components/ui/ContentSection";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { COMPANY_EMAIL } from "@/lib/site";
+import { UK_SERVICE_SCOPE_INTRO, UK_SERVICE_SCOPE_DETAILS } from "@/lib/uk-scope";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -33,7 +34,7 @@ export default function ContactPage() {
       />
       <PageHero
         title="Instruct a Warranty Claim Expert Witness"
-        subtitle="Complete the form below and we will respond within one business day."
+        subtitle="Complete the form below for UK M&A disputes governed by English law. We respond within one business day."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
@@ -60,6 +61,17 @@ export default function ContactPage() {
               ))}
             </ul>
             <div className="mt-8 border-t border-border pt-6">
+              <h3 className="text-sm font-semibold text-heading">
+                United Kingdom Service Only
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-body">
+                {UK_SERVICE_SCOPE_INTRO}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-body">
+                {UK_SERVICE_SCOPE_DETAILS[2]}
+              </p>
+            </div>
+            <div className="mt-8 border-t border-border pt-6">
               <p className="text-sm font-medium text-heading">Email</p>
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
@@ -73,7 +85,7 @@ export default function ContactPage() {
       </ContentSection>
       <CTASection
         title="Need Urgent Expert Evidence?"
-        description="For hearings within six weeks, contact us directly at info@warrantyclaimexpert.com for priority response."
+        description={`For hearings within six weeks in England and Wales, contact us directly at ${COMPANY_EMAIL} for priority response.`}
       />
     </>
   );

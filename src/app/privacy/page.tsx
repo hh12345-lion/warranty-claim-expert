@@ -37,8 +37,9 @@ export default function PrivacyPage() {
           <h2>Who We Are</h2>
           <p>
             Warranty Claim Expert (warrantyclaimexpert.com) provides forensic
-            accountant expert witness referral services for UK M&A disputes. You
-            can contact us at {COMPANY_EMAIL}.
+            accountant expert witness referral services for United Kingdom M&A
+            disputes governed by English law. We do not provide services for
+            non-UK jurisdictions. You can contact us at {COMPANY_EMAIL}.
           </p>
 
           <h2>Information We Collect</h2>

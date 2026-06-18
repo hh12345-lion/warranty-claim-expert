@@ -30,6 +30,14 @@ export default function HowToInstructPage() {
       />
       <ContentSection>
         <Prose>
+          <p>
+            This guide is for UK solicitors and corporate counsel instructing
+            forensic accountant expert witnesses in England and Wales M&A
+            disputes. It assumes an English law sale and purchase agreement,
+            CPR Part 35 where litigation applies, and ICAEW expert
+            determination where the SPA provides for it.
+          </p>
+
           <h2>Step 1: Identify the Dispute Type</h2>
           <p>
             Determine whether the dispute is a breach of warranty claim,

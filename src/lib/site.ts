@@ -3,7 +3,11 @@ export const SITE_URL =
 
 export const SITE_NAME = "Warranty Claim Expert";
 
-export const COMPANY_EMAIL = "info@warrantyclaimexpert.com";
+export const COMPANY_EMAIL = "cases@warrantyclaimexpert.com";
+
+/** Primary geographic market — reflected in content and schema, not promotional banners. */
+export const SITE_REGION = "United Kingdom";
+export const SITE_JURISDICTION = "England and Wales";
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 

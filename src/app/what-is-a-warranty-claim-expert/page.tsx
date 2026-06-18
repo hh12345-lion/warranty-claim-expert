@@ -43,9 +43,10 @@ export default function WhatIsPage() {
           <p>
             A warranty claim expert witness is a forensic accountant who
             provides independent expert evidence in disputes arising from
-            mergers, acquisitions, and business sales, specifically where the
-            financial position of the business at the time of the transaction
-            is in dispute.
+            mergers, acquisitions, and business sales in the United Kingdom,
+            specifically where the financial position of the business at the
+            time of the transaction is in dispute under an English law sale and
+            purchase agreement.
           </p>
 
           <h2>What They Do</h2>

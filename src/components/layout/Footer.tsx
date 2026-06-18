@@ -43,7 +43,9 @@ export function Footer() {
             <p className="text-lg font-bold">WarrantyClaimExpert</p>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
               Forensic accountant expert witnesses for UK M&A warranty claims,
-              completion accounts, earn-outs, and locked box disputes.
+              completion accounts, earn-outs, and locked box disputes. Services
+              are provided for disputes governed by English law and heard in
+              United Kingdom forums only.
             </p>
             <a
               href={`mailto:${COMPANY_EMAIL}`}
@@ -76,8 +78,8 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-8 sm:flex-row">
           <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Warranty Claim Expert. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Warranty Claim Expert. United
+            Kingdom service only. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/ContentSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { InternalLinkSection } from "@/components/seo/InternalLinkSection";
+import { UkServiceScope } from "@/components/seo/UkServiceScope";
 import { HOMEPAGE_HUB_LINKS } from "@/lib/seo/internalLinks";
 import { websiteSchema } from "@/lib/schema";
 import { DISPUTE_TYPES } from "@/data/dispute-types";
@@ -52,6 +53,10 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <ContentSection alt>
+        <UkServiceScope />
+      </ContentSection>
 
       <ContentSection>
         <h2 className="text-2xl font-bold text-heading sm:text-3xl">

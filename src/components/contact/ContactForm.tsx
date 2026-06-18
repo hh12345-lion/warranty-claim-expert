@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { COMPANY_EMAIL } from "@/lib/site";
 
 const DISPUTE_TYPES = [
   "Breach of Financial Warranty",
@@ -249,7 +250,7 @@ export function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-red-600" role="alert">
           There was a problem submitting your enquiry. Please email us directly
-          at info@warrantyclaimexpert.com.
+          at {COMPANY_EMAIL}.
         </p>
       )}
 
