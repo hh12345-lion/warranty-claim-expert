@@ -24,33 +24,32 @@ export default function HomePage() {
         href="/guides/inspired-education-crombie-2025"
         linkText="Read the case analysis"
       >
-        Inspired Education v Crombie [2025]: Valuation expert evidence fatally
-        undermined by partial approach and instructions inconsistent with
+        Inspired Education v Crombie [2025]: valuation expert evidence fatally
+        undermined by a partial approach and instructions inconsistent with
         market value definitions. Expert quality is decisive in warranty claim
         litigation.
       </AlertBanner>
 
-      <section className="bg-primary py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Warranty Claim Expert Witness Services for UK M&A Lawyers &amp;
-            Solicitors
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/80">
-            When a deal goes wrong, you need a warranty claim expert witness UK
-            solicitors can rely on. Whether the accounts were not what was
-            warranted, completion accounts are disputed, earn-out targets have
-            not been met, or the locked box has leaked, forensic accounting
-            expert evidence must withstand M&A litigation scrutiny.
-            WarrantyClaimExpert.com connects UK M&A lawyers with qualified
-            forensic accountants specialising in post-acquisition disputes.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex min-h-[44px] items-center rounded-[var(--radius-sm)] bg-accent px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent/90"
-          >
-            Instruct an Expert
-          </Link>
+      <section className="hero-editorial py-14 md:py-20">
+        <div className="page-wrap">
+          <div className="hero-editorial-inner max-w-3xl">
+            <span className="uk-scope-tag">England &amp; Wales · UK M&amp;A</span>
+            <h1 className="mt-5 font-heading text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
+              Warranty claim expert witnesses for UK solicitors
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-body md:text-lg">
+              When a deal goes wrong, you need forensic accounting expert evidence
+              that withstands M&A litigation scrutiny. We connect UK solicitors and
+              corporate counsel with qualified experts for breach of warranty,
+              completion accounts, earn-outs, and locked box disputes.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-8 inline-flex min-h-[44px] items-center bg-accent px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-hover"
+            >
+              Submit enquiry
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -59,8 +58,8 @@ export default function HomePage() {
       </ContentSection>
 
       <ContentSection>
-        <h2 className="text-2xl font-bold text-heading sm:text-3xl">
-          Four M&A Dispute Types We Cover
+        <h2 className="font-heading text-2xl font-bold text-heading sm:text-3xl">
+          Four M&amp;A dispute types we cover
         </h2>
         <p className="mt-4 max-w-3xl text-body">
           Post-acquisition disputes fall into four distinct mechanisms. Each
@@ -81,12 +80,12 @@ export default function HomePage() {
       </ContentSection>
 
       <ContentSection alt>
-        <h2 className="text-2xl font-bold text-heading sm:text-3xl">
-          Expert Witness Services
+        <h2 className="font-heading text-2xl font-bold text-heading sm:text-3xl">
+          Expert witness services
         </h2>
         <p className="mt-4 max-w-3xl text-body">
           Full-service forensic accounting expert witness support for every
-          stage of M&A dispute resolution.
+          stage of M&amp;A dispute resolution.
         </p>
         <div className="mt-8">
           <CardGrid cols={4}>
@@ -100,26 +99,26 @@ export default function HomePage() {
             ))}
           </CardGrid>
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-8">
           <Link
             href="/services"
-            className="text-sm font-semibold text-accent hover:text-accent/80"
+            className="text-sm font-semibold text-accent hover:text-accent-hover"
           >
             View all services &rarr;
           </Link>
         </div>
       </ContentSection>
 
-      <ContentSection alt>
+      <ContentSection>
         <InternalLinkSection
-          title="Warranty Claim Expert Witness Resources"
+          title="Warranty claim expert witness resources"
           links={HOMEPAGE_HUB_LINKS}
         />
       </ContentSection>
 
-      <ContentSection>
-        <h2 className="text-2xl font-bold text-heading sm:text-3xl">
-          Key Facts: M&A Disputes and Expert Evidence
+      <ContentSection alt>
+        <h2 className="font-heading text-2xl font-bold text-heading sm:text-3xl">
+          Key facts: M&amp;A disputes and expert evidence
         </h2>
         <div className="mt-8">
           <DataTable

@@ -11,7 +11,7 @@ type Props = {
 export function UkServiceScope({ className = "" }: Props) {
   return (
     <div className={className}>
-      <h2 className="text-2xl font-bold text-heading sm:text-3xl">
+      <h2 className="font-heading text-2xl font-bold text-heading sm:text-3xl">
         {UK_SERVICE_SCOPE_HEADING}
       </h2>
       <p className="mt-4 max-w-3xl text-base leading-relaxed text-body">

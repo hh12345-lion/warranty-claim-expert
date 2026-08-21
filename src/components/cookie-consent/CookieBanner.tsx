@@ -206,7 +206,7 @@ export function CookieBanner() {
               onClick={openPreferences}
               className="min-h-[44px] flex-1 rounded-[var(--radius-sm)] border border-primary px-5 py-2.5 text-sm font-medium text-primary transition hover:bg-primary/5 sm:flex-none"
             >
-              Customize Preferences
+              Customise preferences
             </button>
           </div>
         )}

@@ -15,9 +15,9 @@ export function InternalLinkSection({
   return (
     <nav
       aria-label={title}
-      className="mt-10 rounded-[var(--radius-card)] border border-border bg-section-alt p-6"
+      className="mt-10 border border-border border-l-[3px] border-l-accent bg-section-alt p-6"
     >
-      <h2 className="text-lg font-bold text-heading">{title}</h2>
+      <h2 className="font-heading text-lg font-bold text-heading">{title}</h2>
       <ul className="mt-4 grid gap-2 sm:grid-cols-2">
         {links.map((link) => (
           <li key={link.href}>

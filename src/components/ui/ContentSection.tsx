@@ -14,16 +14,16 @@ export function ContentSection({
 }: ContentSectionProps) {
   return (
     <section
-      className={`py-12 md:py-16 ${alt ? "bg-section-alt" : "bg-white"} ${className}`}
+      className={`py-12 md:py-16 ${alt ? "bg-section-alt" : "bg-surface"} ${className}`}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
+      <div className="page-wrap">{children}</div>
     </section>
   );
 }
 
 export function Prose({ children }: { children: ReactNode }) {
   return (
-    <div className="prose-content max-w-3xl space-y-6 text-body leading-relaxed [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-heading [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-heading [&_li]:ml-5 [&_li]:list-disc [&_ol]:list-decimal [&_ol>li]:list-decimal [&_p]:text-base [&_ul]:space-y-2">
+    <div className="prose-content max-w-3xl space-y-6 text-body leading-relaxed [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-heading [&_h3]:mt-8 [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-heading [&_li]:ml-5 [&_li]:list-disc [&_ol]:list-decimal [&_ol>li]:list-decimal [&_p]:text-base [&_ul]:space-y-2">
       {children}
     </div>
   );
@@ -35,11 +35,11 @@ export function FAQList({
   faqs: { question: string; answer: string }[];
 }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {faqs.map((faq, i) => (
         <details
           key={i}
-          className="group rounded-[var(--radius-card)] border border-border bg-white card-shadow"
+          className="group border border-border bg-white card-shadow"
         >
           <summary className="flex min-h-[44px] cursor-pointer items-center justify-between px-5 py-4 text-left font-semibold text-heading marker:content-none [&::-webkit-details-marker]:hidden">
             {faq.question}
@@ -67,7 +67,7 @@ export function DataTable({
   rows: string[][];
 }) {
   return (
-    <div className="overflow-x-auto rounded-[var(--radius-card)] border border-border">
+    <div className="overflow-x-auto border border-border">
       <table className="w-full min-w-[480px] text-left text-sm">
         <thead className="bg-section-alt">
           <tr>
@@ -116,7 +116,7 @@ export function CardGrid({
         : "sm:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <div className={`grid gap-6 ${colClass}`}>{children}</div>
+    <div className={`grid gap-5 ${colClass}`}>{children}</div>
   );
 }
 
@@ -132,16 +132,16 @@ export function LinkCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col rounded-[var(--radius-card)] border border-border bg-white p-6 card-shadow transition hover:border-accent/40 hover:shadow-md"
+      className="group flex flex-col border border-border border-l-[3px] border-l-accent bg-white p-6 card-shadow transition hover:border-l-accent-hover hover:shadow-[var(--shadow-lift)]"
     >
-      <h3 className="text-lg font-semibold text-heading group-hover:text-accent">
+      <h3 className="font-heading text-lg font-semibold text-heading group-hover:text-accent">
         {title}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-body">
         {description}
       </p>
       <span className="mt-4 text-sm font-medium text-accent">
-        Learn more &rarr;
+        Read more &rarr;
       </span>
     </Link>
   );

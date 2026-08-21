@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Figtree, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -13,9 +13,16 @@ import {
 } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
 
-const inter = Inter({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
+  display: "swap",
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
   display: "swap",
 });
 
@@ -33,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={`${inter.variable} h-full`}>
+    <html
+      lang="en-GB"
+      className={`${libreBaskerville.variable} ${figtree.variable} h-full`}
+    >
       <head>
         <ConsentModeScript />
       </head>

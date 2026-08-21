@@ -9,25 +9,21 @@ import {
   RESOURCES_NAV_LINKS,
 } from "@/lib/navigation";
 
-const FOOTER_SECTIONS = [
+const FOOTER_LINK_GROUPS = [
   {
     title: "Services",
-    links: SERVICE_NAV_LINKS,
+    links: SERVICE_NAV_LINKS.slice(0, 5),
   },
   {
-    title: "Dispute Types",
+    title: "Disputes",
     links: DISPUTE_TYPE_NAV_LINKS,
   },
   {
     title: "Resources",
     links: [
-      ...RESOURCES_NAV_LINKS,
-      { href: "/how-warranty-claims-work", label: "How Claims Work" },
+      ...RESOURCES_NAV_LINKS.slice(0, 3),
+      { href: "/how-warranty-claims-work", label: "How claims work" },
       { href: "/glossary", label: "Glossary" },
-      {
-        href: "/what-is-a-warranty-claim-expert",
-        label: "What Is an Expert Witness?",
-      },
     ],
   },
 ];
@@ -36,76 +32,73 @@ export function Footer() {
   const { reopenSettings } = useCookieConsent();
 
   return (
-    <footer className="border-t border-border bg-primary text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 min-[480px]:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="text-lg font-bold">WarrantyClaimExpert</p>
-            <p className="mt-3 text-sm leading-relaxed text-white/70">
-              Forensic accountant expert witnesses for UK M&A warranty claims,
-              completion accounts, earn-outs, and locked box disputes. Services
-              are provided for disputes governed by English law and heard in
-              United Kingdom forums only.
+    <footer className="mt-auto border-t border-border bg-section-alt text-primary">
+      <div className="page-wrap py-10 lg:py-12">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-md">
+            <Link href="/" className="font-heading text-2xl text-primary md:text-3xl">
+              Warranty Claim Expert
+            </Link>
+            <p className="mt-3 text-sm leading-relaxed text-body">
+              Forensic accountant expert witnesses for UK M&amp;A warranty claims,
+              completion accounts, earn-outs, and locked box disputes. English law
+              and United Kingdom forums only.
             </p>
+            <div className="mt-4">
+              <span className="uk-scope-tag">England &amp; Wales practice</span>
+            </div>
             <a
               href={`mailto:${COMPANY_EMAIL}`}
-              className="mt-4 inline-block text-sm font-medium text-white/90 hover:text-white"
+              className="mt-4 inline-block text-sm font-semibold text-accent transition hover:text-accent-hover"
             >
               {COMPANY_EMAIL}
             </a>
           </div>
 
-          {FOOTER_SECTIONS.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                {section.title}
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/70 transition hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid gap-8 sm:grid-cols-3 lg:gap-12">
+            {FOOTER_LINK_GROUPS.map((group) => (
+              <div key={group.title}>
+                <h2 className="font-label text-primary">{group.title}</h2>
+                <ul className="mt-3 space-y-2">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-body transition hover:text-accent"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-8 sm:flex-row">
-          <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Warranty Claim Expert. United
-            Kingdom service only. All rights reserved.
+      <div className="bg-primary text-white">
+        <div className="page-wrap flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-white/65">
+            &copy; {new Date().getFullYear()} Warranty Claim Expert · England and
+            Wales
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/privacy"
-              className="text-sm text-white/70 hover:text-white"
-            >
-              Privacy Policy
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/65">
+            <Link href="/privacy" className="transition hover:text-white">
+              Privacy
             </Link>
-            <Link
-              href="/terms"
-              className="text-sm text-white/70 hover:text-white"
-            >
-              Terms of Use
+            <Link href="/terms" className="transition hover:text-white">
+              Terms
             </Link>
-            <Link
-              href="/cookie-policy"
-              className="text-sm text-white/70 hover:text-white"
-            >
-              Cookie Policy
+            <Link href="/cookie-policy" className="transition hover:text-white">
+              Cookies
             </Link>
             <button
               type="button"
               onClick={reopenSettings}
-              className="min-h-[44px] text-sm font-medium text-white/70 transition hover:text-white"
+              className="transition hover:text-white"
             >
-              Cookie Settings
+              Cookie settings
             </button>
           </div>
         </div>

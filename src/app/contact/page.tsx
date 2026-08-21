@@ -4,7 +4,7 @@ import { CTASection } from "@/components/layout/CTASection";
 import { ContentSection } from "@/components/ui/ContentSection";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { COMPANY_EMAIL } from "@/lib/site";
-import { UK_SERVICE_SCOPE_INTRO, UK_SERVICE_SCOPE_DETAILS } from "@/lib/uk-scope";
+import { UK_SERVICE_SCOPE_INTRO } from "@/lib/uk-scope";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -20,7 +20,7 @@ const TRUST_ITEMS = [
   "Completion accounts and earn-outs",
   "CPR Part 35 compliant",
   "W&I insurer and buyer-side",
-  "Response within 1 business day",
+  "Response within one working day",
 ];
 
 export default function ContactPage() {
@@ -33,8 +33,8 @@ export default function ContactPage() {
         ])}
       />
       <PageHero
-        title="Instruct a Warranty Claim Expert Witness"
-        subtitle="Complete the form below for UK M&A disputes governed by English law. We respond within one business day."
+        title="Submit an enquiry"
+        subtitle="For UK M&A disputes governed by English law. We respond within one working day."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
@@ -45,15 +45,17 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <ContactForm />
           </div>
-          <aside className="rounded-[var(--radius-card)] border border-border bg-section-alt p-6">
-            <h2 className="text-lg font-bold text-heading">Why Instruct Us</h2>
+          <aside className="border border-border border-l-[3px] border-l-accent bg-section-alt p-6">
+            <h2 className="font-heading text-lg font-bold text-heading">
+              Why instruct us
+            </h2>
             <ul className="mt-4 space-y-3">
               {TRUST_ITEMS.map((item) => (
                 <li
                   key={item}
                   className="flex items-start gap-2 text-sm text-body"
                 >
-                  <span className="mt-1 text-accent" aria-hidden="true">
+                  <span className="mt-0.5 text-accent" aria-hidden="true">
                     &#10003;
                   </span>
                   {item}
@@ -61,14 +63,9 @@ export default function ContactPage() {
               ))}
             </ul>
             <div className="mt-8 border-t border-border pt-6">
-              <h3 className="text-sm font-semibold text-heading">
-                United Kingdom Service Only
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-body">
-                {UK_SERVICE_SCOPE_INTRO}
-              </p>
+              <span className="uk-scope-tag">United Kingdom only</span>
               <p className="mt-3 text-sm leading-relaxed text-body">
-                {UK_SERVICE_SCOPE_DETAILS[2]}
+                {UK_SERVICE_SCOPE_INTRO}
               </p>
             </div>
             <div className="mt-8 border-t border-border pt-6">
@@ -84,8 +81,8 @@ export default function ContactPage() {
         </div>
       </ContentSection>
       <CTASection
-        title="Need Urgent Expert Evidence?"
-        description={`For hearings within six weeks in England and Wales, contact us directly at ${COMPANY_EMAIL} for priority response.`}
+        title="Urgent expert evidence?"
+        description={`For hearings within six weeks in England and Wales, email ${COMPANY_EMAIL} for priority response.`}
       />
     </>
   );

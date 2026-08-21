@@ -12,12 +12,12 @@ export const SITE_JURISDICTION = "England and Wales";
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 export const COLORS = {
-  primary: "#1A2744",
-  accent: "#1E6B3C",
-  highlight: "#D4760C",
-  background: "#FFFFFF",
-  sectionAlt: "#F5F7FA",
-  border: "#D0D9E8",
-  heading: "#1A2744",
-  body: "#374151",
+  primary: "#252B33",
+  accent: "#B85C38",
+  highlight: "#466578",
+  background: "#FAFAF8",
+  sectionAlt: "#E8EBEF",
+  border: "#C8CDD4",
+  heading: "#1E2429",
+  body: "#3F454C",
 } as const;

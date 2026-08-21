@@ -33,7 +33,7 @@ export function NavDropdown({ item, mobile = false, onNavigate }: Props) {
       <li>
         <button
           type="button"
-          className="flex min-h-[44px] w-full items-center justify-between rounded-[var(--radius-sm)] px-3 text-sm font-medium text-body hover:bg-section-alt"
+          className="flex min-h-[44px] w-full items-center justify-between px-3 text-sm font-medium text-body hover:bg-section-alt"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls={menuId}
@@ -49,14 +49,14 @@ export function NavDropdown({ item, mobile = false, onNavigate }: Props) {
         {open && (
           <ul
             id={menuId}
-            className="ml-3 mt-1 max-h-[50vh] space-y-1 overflow-y-auto border-l border-border pl-3"
+            className="ml-3 mt-1 max-h-[50vh] space-y-1 overflow-y-auto border-l border-accent/40 pl-3"
           >
             {item.children.map((child) => (
               <li key={child.href}>
                 <Link
                   href={child.href}
                   onClick={onNavigate}
-                  className="flex min-h-[44px] items-center rounded-[var(--radius-sm)] px-3 text-sm text-body hover:bg-section-alt"
+                  className="flex min-h-[44px] items-center px-3 text-sm text-body hover:bg-section-alt"
                 >
                   {child.label}
                 </Link>
@@ -76,8 +76,8 @@ export function NavDropdown({ item, mobile = false, onNavigate }: Props) {
     >
       <Link
         href={item.href}
-        className={`flex items-center gap-1 text-sm font-medium transition hover:text-accent ${
-          isActive ? "text-accent" : "text-body"
+        className={`inline-flex min-h-[44px] items-center gap-1 px-2.5 py-2 text-sm font-medium transition-colors lg:px-3 ${
+          isActive ? "text-accent" : "text-body hover:text-primary"
         }`}
         aria-haspopup="true"
         aria-expanded={open}
@@ -92,7 +92,6 @@ export function NavDropdown({ item, mobile = false, onNavigate }: Props) {
         </span>
       </Link>
 
-      {/* pt-2 bridge keeps dropdown open while moving pointer from trigger to menu */}
       <div
         id={menuId}
         role="menu"
@@ -102,7 +101,7 @@ export function NavDropdown({ item, mobile = false, onNavigate }: Props) {
             : "invisible -translate-y-1 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="max-h-[70vh] overflow-y-auto rounded-[var(--radius-card)] border border-border bg-white py-2 card-shadow">
+        <div className="max-h-[70vh] overflow-y-auto border border-border bg-white py-2 card-shadow">
           {item.children.map((child) => (
             <Link
               key={child.href}
