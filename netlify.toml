@@ -5,6 +5,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# /api/submit-lead → Next.js route (webhook primary + soft-fail Sheets, one tab + Form Type)
+
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
