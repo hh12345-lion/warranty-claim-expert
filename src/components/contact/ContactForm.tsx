@@ -3,18 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { COMPANY_EMAIL } from "@/lib/site";
 
-const DISPUTE_TYPES = [
-  "",
-  "Breach of financial warranty",
-  "Completion accounts",
-  "Earn-out dispute",
-  "Locked box leakage",
-  "W&I insurance claim",
-  "Tax warranty",
-  "Business sale fraud",
-  "Other / multiple",
-];
-
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "error">(
     "idle"
@@ -31,9 +19,7 @@ export function ContactForm() {
       fullName: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
       phone: String(formData.get("phone") ?? "").trim(),
-      lawFirm: String(formData.get("firm") ?? "").trim(),
-      disputeType: String(formData.get("dispute_type") ?? "").trim(),
-      description: String(formData.get("description") ?? "").trim(),
+      formType: "contact",
     };
 
     try {
@@ -74,20 +60,6 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="firm" className={labelClass}>
-          Firm or organisation <span className="text-accent">*</span>
-        </label>
-        <input
-          id="firm"
-          name="firm"
-          type="text"
-          required
-          autoComplete="organization"
-          className={inputClass}
-        />
-      </div>
-
-      <div>
         <label htmlFor="email" className={labelClass}>
           Email address <span className="text-accent">*</span>
         </label>
@@ -113,33 +85,6 @@ export function ContactForm() {
           autoComplete="tel"
           placeholder="e.g. 020 7123 4567"
           className={inputClass}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="dispute_type" className={labelClass}>
-          Dispute type
-        </label>
-        <select id="dispute_type" name="dispute_type" className={inputClass}>
-          {DISPUTE_TYPES.map((t) => (
-            <option key={t || "default"} value={t}>
-              {t || "Select if known"}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="description" className={labelClass}>
-          Brief enquiry <span className="text-accent">*</span>
-        </label>
-        <textarea
-          id="description"
-          name="description"
-          required
-          rows={4}
-          className={`${inputClass} min-h-[100px] resize-y`}
-          placeholder="Describe the dispute, warranties involved, and the expert evidence required."
         />
       </div>
 

@@ -1,44 +1,19 @@
 import { NextResponse } from "next/server";
-import { appendRow, isGoogleSheetsConfigured } from "@/lib/google-sheets";
-
-const BRAND_NAME = "Warranty Claim Expert";
+import { isGoogleSheetsConfigured } from "@/lib/google-sheets";
+import { appendLeadToGoogleSheet } from "@/lib/lead-sheet";
+import { notifyLeadWebhook } from "@/lib/leadNotification";
 
 type LeadPayload = {
   fullName?: string;
   email?: string;
   phone?: string;
-  lawFirm?: string;
-  disputeType?: string;
-  stage?: string;
-  dealValue?: string;
-  claimValue?: string;
-  wiInsurance?: string;
-  urgency?: string;
-  deadline?: string;
-  description?: string;
+  formType?: string;
 };
 
-function sanitize(str: string): string {
-  return str.replace(/<[^>]*>/g, "").trim();
-}
-
-async function notifyWebhook(payload: LeadPayload): Promise<void> {
-  const webhookUrl =
-    process.env.Lead_notification_url || process.env.LEAD_NOTIFICATION_URL;
-  if (!webhookUrl) return;
-
-  await fetch(webhookUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      "Full Name": payload.fullName ?? "",
-      Email: payload.email ?? "",
-      "Phone Number": payload.phone ?? "",
-      "Brand name": BRAND_NAME,
-    }),
-  });
-}
-
+/**
+ * POST /api/submit-lead — webhook primary.
+ * Optional Google Sheets: one shared tab + Form Type; soft-fail only.
+ */
 export async function POST(request: Request) {
   let body: LeadPayload;
   try {
@@ -47,70 +22,60 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const {
-    fullName,
-    email,
-    phone,
-    lawFirm,
-    disputeType,
-    stage,
-    dealValue,
-    claimValue,
-    wiInsurance,
-    urgency,
-    deadline,
-    description,
-  } = body;
+  const fullName = body.fullName?.trim() ?? "";
+  const email = body.email?.trim() ?? "";
+  const phone = body.phone?.trim() ?? "";
+  const formType = body.formType?.trim() || "contact";
 
-  if (!fullName || !email || !lawFirm || !description) {
+  if (!fullName || !email) {
     return NextResponse.json(
-      { error: "fullName, email, lawFirm, and description are required" },
+      { error: "fullName and email are required" },
       { status: 400 }
     );
   }
 
-  const timestamp = new Date().toISOString();
-  const row = [
-    timestamp,
-    BRAND_NAME,
-    sanitize(fullName),
-    sanitize(lawFirm),
-    email.toLowerCase().trim(),
-    phone ? sanitize(phone) : "",
-    disputeType ? sanitize(disputeType) : "",
-    stage ? sanitize(stage) : "",
-    dealValue ? sanitize(dealValue) : "",
-    claimValue ? sanitize(claimValue) : "",
-    wiInsurance ? sanitize(wiInsurance) : "",
-    urgency ? sanitize(urgency) : "",
-    deadline ? sanitize(deadline) : "",
-    sanitize(description),
-  ];
+  const webhookUrl =
+    process.env.Lead_notification_url || process.env.LEAD_NOTIFICATION_URL;
+  const sheetsConfigured = isGoogleSheetsConfigured();
 
-  if (!isGoogleSheetsConfigured()) {
+  if (!webhookUrl && !sheetsConfigured) {
     return NextResponse.json(
-      { error: "Google Sheets is not configured" },
+      { error: "Lead submission is not configured" },
       { status: 500 }
     );
   }
 
-  try {
-    await appendRow(row);
-  } catch (error) {
-    console.error("Google Sheets write failed:", {
-      message: error instanceof Error ? error.message : "Unknown error",
-      timestamp,
-    });
-    return NextResponse.json(
-      { error: "Failed to save your enquiry" },
-      { status: 500 }
-    );
+  // Webhook primary — hard-fail only when configured and delivery fails.
+  if (webhookUrl) {
+    try {
+      await notifyLeadWebhook({ fullName, email, phone, formType });
+    } catch (error) {
+      console.error("Lead webhook notification failed:", error);
+      return NextResponse.json(
+        { error: "Failed to send your enquiry" },
+        { status: 502 }
+      );
+    }
   }
 
-  try {
-    await notifyWebhook(body);
-  } catch (error) {
-    console.error("Webhook notification failed (non-blocking):", error);
+  // Soft-fail Sheets — never block a successful webhook.
+  if (sheetsConfigured) {
+    try {
+      await appendLeadToGoogleSheet({ fullName, email, phone, formType });
+    } catch (error: unknown) {
+      const err = error as { message?: string };
+      console.error("Google Sheets error (soft-fail):", {
+        message: err?.message,
+        spreadsheetId: `${process.env.GOOGLE_SHEET_ID?.slice(0, 8)}...`,
+        timestamp: new Date().toISOString(),
+      });
+      if (!webhookUrl) {
+        return NextResponse.json(
+          { error: "Failed to save your enquiry" },
+          { status: 502 }
+        );
+      }
+    }
   }
 
   return NextResponse.json({ ok: true });
