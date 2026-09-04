@@ -37,7 +37,7 @@ function appendRangeForTab(sheetName) {
 
 function getSiteDomain() {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.warrantyclaimexpert.com";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://warrantyclaimexpert.com";
   try {
     return new URL(siteUrl).hostname.replace(/^www\./i, "");
   } catch {

@@ -4,4 +4,4 @@ Allow: /
 Disallow: /thank-you
 Disallow: /api/
 
-Sitemap: https://www.warrantyclaimexpert.com/sitemap.xml
+Sitemap: https://warrantyclaimexpert.com/sitemap.xml
