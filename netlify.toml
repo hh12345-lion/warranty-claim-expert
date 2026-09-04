@@ -16,3 +16,11 @@
   for = "/robots.txt"
   [headers.values]
     Content-Type = "text/plain"
+
+# AHREFS_WWW_APEX_REDIRECT — flatten https://www → apex (reduces Ahrefs redirect-chain)
+[[redirects]]
+  from = "/*"
+  to = "https://warrantyclaimexpert.com/:splat"
+  status = 301
+  force = true
+  conditions = {Host = ["www.warrantyclaimexpert.com"]}
