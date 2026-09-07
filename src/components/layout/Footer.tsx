@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { PreferredSourceButton } from "@/components/layout/PreferredSourceButton";
 import { COMPANY_EMAIL } from "@/lib/site";
 import { useCookieConsent } from "@/components/cookie-consent/CookieConsentProvider";
 import {
@@ -100,6 +101,7 @@ export function Footer() {
             >
               Cookie settings
             </button>
+            <PreferredSourceButton theme="dark" />
           </div>
         </div>
       </div>
