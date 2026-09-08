@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { COMPANY_EMAIL } from "@/lib/site";
+import { submitNetlifyForm } from "@/lib/submitNetlifyForm";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "error">(
@@ -35,6 +36,15 @@ export function ContactForm() {
       };
 
       if (res.ok && (result.ok || result.success || res.status === 200)) {
+        try {
+          await submitNetlifyForm("contact", {
+            name: payload.fullName,
+            email: payload.email,
+            phone: payload.phone,
+          });
+        } catch {
+          // Sheets/webhook already stored the enquiry; don't block the visitor.
+        }
         window.location.href = "/thank-you";
       } else {
         setStatus("error");
@@ -49,7 +59,19 @@ export function ContactForm() {
   const labelClass = "mb-1.5 block text-sm font-medium text-heading";
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg space-y-4">
+    <form
+      name="contact"
+      method="POST"
+      action="/__forms.html"
+      onSubmit={handleSubmit}
+      className="max-w-lg space-y-4"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden" aria-hidden="true">
+        <label>
+          Do not fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
       <div>
         <label htmlFor="name" className={labelClass}>
           Your name <span className="text-accent">*</span>
