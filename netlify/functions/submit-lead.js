@@ -199,9 +199,7 @@ exports.handler = async function handler(event) {
   const phone = String(body.phone ?? "").trim();
   const message = resolveLeadMessage(body);
   const formType = String(body.formType ?? "contact").trim() || "contact";
-  const message = String(
-    body.message ?? body.description ?? ""
-  ).trim();
+
 
   if (!fullName || !email) {
     return jsonResponse(400, { error: "fullName and email are required" });
