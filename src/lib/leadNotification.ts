@@ -7,6 +7,8 @@ export type LeadWebhookInput = {
   email: string;
   phone?: string;
   formType?: string;
+  /** Free-text enquiry body — always sent to n8n as `message`. */
+  message?: string;
 };
 
 export type LeadWebhookPayload = {
@@ -15,6 +17,7 @@ export type LeadWebhookPayload = {
   "Phone Number": string;
   "Brand name": string;
   domain: string;
+  message: string;
 };
 
 /** Hostname from NEXT_PUBLIC_SITE_URL — no protocol, no path, www stripped. */
@@ -36,6 +39,7 @@ export function buildLeadWebhookPayload(
     "Phone Number": (input.phone ?? "").trim(),
     "Brand name": BRAND_NAME,
     domain: getSiteDomain(),
+    message: input.message ?? "",
   };
 }
 

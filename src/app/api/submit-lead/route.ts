@@ -55,6 +55,7 @@ export async function POST(request: Request) {
         email,
         phone,
         formType,
+        message,
       });
       forwarded = true;
     } catch (error) {
