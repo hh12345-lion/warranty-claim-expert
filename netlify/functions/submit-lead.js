@@ -156,6 +156,32 @@ async function appendLeadToSheet(payload) {
   return true;
 }
 
+/** Map site-specific free-text field names to universal `message`. */
+function resolveLeadMessage(body) {
+  if (!body || typeof body !== "object") return "";
+  const keys = [
+    "message",
+    "Message",
+    "description",
+    "enquiry",
+    "details",
+    "summary",
+    "notes",
+    "matter",
+    "caseSummary",
+    "additionalInfo",
+    "additional_info",
+    "caseDetails",
+    "enquiryDetails",
+  ];
+  for (const key of keys) {
+    if (body[key] != null && String(body[key]).trim()) {
+      return String(body[key]).trim();
+    }
+  }
+  return "";
+}
+
 exports.handler = async function handler(event) {
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, { error: "Method not allowed" });
@@ -171,6 +197,7 @@ exports.handler = async function handler(event) {
   const fullName = String(body.fullName ?? "").trim();
   const email = String(body.email ?? "").trim();
   const phone = String(body.phone ?? "").trim();
+  const message = resolveLeadMessage(body);
   const formType = String(body.formType ?? "contact").trim() || "contact";
   const message = String(
     body.message ?? body.description ?? ""
@@ -197,6 +224,7 @@ exports.handler = async function handler(event) {
           "Phone Number": phone,
           "Brand name": BRAND_NAME,
           domain: getSiteDomain(),
+    message,
         }),
       });
       forwarded = response.ok;
