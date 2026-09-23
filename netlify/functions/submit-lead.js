@@ -220,20 +220,17 @@ exports.handler = async function handler(event) {
   const webhookUrl = getLeadNotificationUrl();
 
   if (webhookUrl) {
-    const fullNameOutbound = message
-      ? `${fullName} — ${message.slice(0, 500)}`
-      : fullName;
     try {
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          "Full Name": fullNameOutbound,
+          "Full Name": fullName,
           Email: email.toLowerCase(),
           "Phone Number": phone,
           "Brand name": BRAND_NAME,
           domain: getSiteDomain(),
-    message,
+          message,
         }),
       });
       forwarded = response.ok;
