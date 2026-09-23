@@ -10,8 +10,30 @@ type LeadPayload = {
   formType?: string;
   message?: string;
   description?: string;
+  notes?: string;
+  details?: string;
+  caseDescription?: string;
+  case_description?: string;
+  caseBrief?: string;
   lawFirm?: string;
 };
+
+function resolveLeadMessage(body: LeadPayload): string {
+  const keys = [
+    "message",
+    "description",
+    "notes",
+    "details",
+    "caseDescription",
+    "case_description",
+    "caseBrief",
+  ] as const;
+  for (const key of keys) {
+    const v = body[key];
+    if (v != null && String(v).trim()) return String(v).trim();
+  }
+  return "";
+}
 
 /**
  * Soft-fail webhook + soft-fail Sheets.
@@ -29,11 +51,7 @@ export async function POST(request: Request) {
   const email = (body.email ?? "").trim();
   const phone = (body.phone ?? "").trim();
   const formType = (body.formType ?? "").trim() || "contact";
-  const message = (
-    body.message ??
-    body.description ??
-    ""
-  ).trim();
+  const message = resolveLeadMessage(body);
 
   if (!fullName || !email) {
     return NextResponse.json(

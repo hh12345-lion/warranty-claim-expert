@@ -20,6 +20,7 @@ export function ContactForm() {
       fullName: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
       phone: String(formData.get("phone") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
       formType: "contact",
     };
 
@@ -41,6 +42,7 @@ export function ContactForm() {
             name: payload.fullName,
             email: payload.email,
             phone: payload.phone,
+            message: payload.message,
           });
         } catch {
           // Sheets/webhook already stored the enquiry; don't block the visitor.
@@ -112,6 +114,20 @@ export function ContactForm() {
           autoComplete="tel"
           placeholder="e.g. 020 7123 4567"
           className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="message" className={labelClass}>
+          How can we help?{" "}
+          <span className="font-normal text-muted">(optional)</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          className={`${inputClass} resize-y`}
+          placeholder="Brief description of the warranty claim or enquiry."
         />
       </div>
 
