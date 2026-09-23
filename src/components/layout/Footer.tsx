@@ -41,12 +41,11 @@ export function Footer() {
               Warranty Claim Expert
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-body">
-              Forensic accountant expert witnesses for UK M&amp;A warranty claims,
-              completion accounts, earn-outs, and locked box disputes. English law
-              and United Kingdom forums only.
+              Forensic accountant expert witnesses for M&amp;A warranty claims,
+              completion accounts, earn-outs, and locked box disputes.
             </p>
             <div className="mt-4">
-              <span className="uk-scope-tag">England &amp; Wales practice</span>
+              <span className="uk-scope-tag">Expert witness practice</span>
             </div>
             <a
               href={`mailto:${COMPANY_EMAIL}`}
@@ -81,8 +80,7 @@ export function Footer() {
       <div className="bg-primary text-white">
         <div className="page-wrap flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/65">
-            &copy; {new Date().getFullYear()} Warranty Claim Expert · England and
-            Wales
+            &copy; {new Date().getFullYear()} Warranty Claim Expert
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/65">
             <Link href="/privacy" className="transition hover:text-white">

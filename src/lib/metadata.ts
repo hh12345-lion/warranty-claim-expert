@@ -25,8 +25,7 @@ export function createMetadata({
     alternates: {
       canonical: url,
       languages: {
-        "en-GB": url,
-        "en-US": url,
+        en: url,
         "x-default": url,
       },
     },
@@ -35,7 +34,7 @@ export function createMetadata({
       description,
       url,
       siteName: SITE_NAME,
-      locale: "en_GB",
+      locale: "en",
       type: "website",
     },
     twitter: {

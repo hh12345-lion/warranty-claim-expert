@@ -28,9 +28,9 @@ export const SITE_NAME = "Warranty Claim Expert";
 
 export const COMPANY_EMAIL = "cases@warrantyclaimexpert.com";
 
-/** Primary geographic market — reflected in content and schema, not promotional banners. */
-export const SITE_REGION = "United Kingdom";
-export const SITE_JURISDICTION = "England and Wales";
+/** Soft geo — avoid stacking marketplace country names in chrome. */
+export const SITE_REGION = "Worldwide";
+export const SITE_JURISDICTION = "English law M&A practice";
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 

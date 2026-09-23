@@ -27,7 +27,7 @@ export function Header() {
       <div className="border-b border-accent/30 bg-primary text-white">
         <div className="page-wrap flex flex-col gap-1 py-2 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p className="font-label text-white/75">
-            England &amp; Wales · United Kingdom M&amp;A disputes only
+            Forensic accountants for M&amp;A warranty disputes
           </p>
           <a
             href={`mailto:${COMPANY_EMAIL}`}
@@ -55,7 +55,7 @@ export function Header() {
               <span className="block font-heading text-base text-primary sm:text-lg">
                 Warranty Claim
               </span>
-              <span className="font-label text-primary/60">Expert witness · UK</span>
+              <span className="font-label text-primary/60">Expert witness referrals</span>
             </span>
           </Link>
 
@@ -129,7 +129,7 @@ export function Header() {
           className="max-h-[calc(100dvh-7rem)] overflow-y-auto border-b border-border bg-surface px-4 py-4 animate-slide-down xl:hidden"
           aria-label="Mobile navigation"
         >
-          <span className="uk-scope-tag mb-4">England &amp; Wales only</span>
+          <span className="uk-scope-tag mb-4">M&amp;A warranty disputes</span>
           <ul className="space-y-1">
             {NAV_DROPDOWNS.map((item) => (
               <NavDropdown

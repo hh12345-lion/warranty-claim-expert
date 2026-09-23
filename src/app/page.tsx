@@ -33,13 +33,13 @@ export default function HomePage() {
       <section className="hero-editorial py-14 md:py-20">
         <div className="page-wrap">
           <div className="hero-editorial-inner max-w-3xl">
-            <span className="uk-scope-tag">England &amp; Wales · UK M&amp;A</span>
+            <span className="uk-scope-tag">M&amp;A warranty claims</span>
             <h1 className="mt-5 font-heading text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
-              Warranty claim expert witnesses for UK solicitors
+              Warranty claim expert witnesses for solicitors
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-body md:text-lg">
               When a deal goes wrong, you need forensic accounting expert evidence
-              that withstands M&A litigation scrutiny. We connect UK solicitors and
+              that withstands M&A litigation scrutiny. We connect solicitors and
               corporate counsel with qualified experts for breach of warranty,
               completion accounts, earn-outs, and locked box disputes.
             </p>

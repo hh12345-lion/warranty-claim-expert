@@ -9,9 +9,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = createMetadata({
-  title: "Instruct a Warranty Claim Expert Witness | Contact UK",
+  title: "Instruct a Warranty Claim Expert Witness | Contact",
   description:
-    "Instruct a warranty claim expert witness for your UK M&A dispute. Contact our forensic accountants for breach of warranty, completion accounts, earn-out, and locked box claims.",
+    "Instruct a warranty claim expert witness for your M&A dispute. Contact our forensic accountants for breach of warranty, completion accounts, earn-out, and locked box claims.",
   path: "/contact",
 });
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
       />
       <PageHero
         title="Submit an enquiry"
-        subtitle="For UK M&A disputes governed by English law. We respond within one working day."
+        subtitle="For M&A disputes governed by English law. We respond within one working day."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
@@ -63,7 +63,7 @@ export default function ContactPage() {
               ))}
             </ul>
             <div className="mt-8 border-t border-border pt-6">
-              <span className="uk-scope-tag">United Kingdom only</span>
+              <span className="uk-scope-tag">English law practice</span>
               <p className="mt-3 text-sm leading-relaxed text-body">
                 {UK_SERVICE_SCOPE_INTRO}
               </p>
@@ -82,7 +82,7 @@ export default function ContactPage() {
       </ContentSection>
       <CTASection
         title="Urgent expert evidence?"
-        description={`For hearings within six weeks in England and Wales, email ${COMPANY_EMAIL} for priority response.`}
+        description={`For hearings within six weeks, email ${COMPANY_EMAIL} for priority response.`}
       />
     </>
   );

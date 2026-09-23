@@ -9,8 +9,8 @@ export function organizationSchema() {
     email: COMPANY_EMAIL,
     logo: `${SITE_URL}/icon.svg`,
     description:
-      "United Kingdom warranty claim expert witness services for M&A disputes governed by English law, including completion accounts, earn-outs, and locked box claims.",
-    areaServed: "GB",
+      "Warranty claim expert witness services for M&A disputes governed by English law, including completion accounts, earn-outs, and locked box claims.",
+    areaServed: "Worldwide",
     sameAs: [],
   };
 }
@@ -23,11 +23,8 @@ export function professionalServiceSchema() {
     url: SITE_URL,
     email: COMPANY_EMAIL,
     description:
-      "Forensic accountant expert witnesses for warranty and indemnity claims, completion accounts disputes, earn-out disagreements, and locked box leakage in UK M&A litigation.",
-    areaServed: {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
+      "Forensic accountant expert witnesses for warranty and indemnity claims, completion accounts disputes, earn-out disagreements, and locked box leakage in M&A litigation.",
+    areaServed: "Worldwide",
     serviceType: [
       "Warranty Claim Expert Witness",
       "Completion Accounts Expert Determination",
@@ -44,6 +41,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
+    inLanguage: "en",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -126,7 +124,7 @@ export function serviceSchema(
       name: SITE_NAME,
       url: SITE_URL,
     },
-    areaServed: "GB",
+    areaServed: "Worldwide",
   }));
 }
 

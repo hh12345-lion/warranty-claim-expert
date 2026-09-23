@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = createMetadata({
-  title: "How to Instruct a Warranty Claim Expert Witness UK",
+  title: "How to Instruct a Warranty Claim Expert Witness",
   description:
     "Step-by-step guide to instructing a warranty claim expert witness: identify dispute type, expert determination vs litigation, letter of instruction, and required documents.",
   path: "/how-to-instruct",
@@ -31,8 +31,8 @@ export default function HowToInstructPage() {
       <ContentSection>
         <Prose>
           <p>
-            This guide is for UK solicitors and corporate counsel instructing
-            forensic accountant expert witnesses in England and Wales M&A
+            This guide is for solicitors and corporate counsel instructing
+            forensic accountant expert witnesses in English-law M&A
             disputes. It assumes an English law sale and purchase agreement,
             CPR Part 35 where litigation applies, and ICAEW expert
             determination where the SPA provides for it.

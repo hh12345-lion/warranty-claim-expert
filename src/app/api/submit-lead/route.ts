@@ -67,9 +67,7 @@ export async function POST(request: Request) {
   if (webhookUrl?.trim()) {
     try {
       await notifyLeadWebhook({
-        fullName: message
-          ? `${fullName} — ${message.slice(0, 500)}`
-          : fullName,
+        fullName,
         email,
         phone,
         formType,

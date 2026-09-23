@@ -13,6 +13,8 @@ import {
 } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
 
+export const dynamic = "force-dynamic";
+
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -28,9 +30,9 @@ const figtree = Figtree({
 
 export const metadata: Metadata = createMetadata({
   title:
-    "Warranty Claim Expert Witness UK | M&A Disputes, Completion Accounts & Earn-Outs",
+    "Warranty Claim Expert Witness | M&A Disputes, Completion Accounts & Earn-Outs",
   description:
-    "Find a qualified warranty claim expert witness in the UK. Forensic accountants for breach of warranty, completion accounts, earn-out disputes, locked box claims, and SPA litigation.",
+    "Find a qualified warranty claim expert witness. Forensic accountants for breach of warranty, completion accounts, earn-out disputes, locked box claims, and SPA litigation.",
   path: "/",
 });
 
@@ -41,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en-GB"
+      lang="en"
       className={`${libreBaskerville.variable} ${figtree.variable} h-full`}
     >
       <head>

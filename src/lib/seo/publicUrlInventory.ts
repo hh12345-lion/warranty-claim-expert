@@ -3,6 +3,7 @@ import { SERVICES, serviceHref } from "@/data/services";
 import { DISPUTE_TYPES } from "@/data/dispute-types";
 import { CASE_TYPES } from "@/data/case-types";
 import { GUIDES } from "@/data/guides";
+import { getBlogSlugs } from "@/lib/blog";
 
 /**
  * Curated static marketing and content routes.
@@ -24,6 +25,8 @@ export const APP_STATIC_PATHS: string[] = [
   "/fees",
   "/faq",
   "/experts",
+  "/blog",
+  ...getBlogSlugs().map((slug) => `/blog/${slug}`),
   "/guides",
   ...GUIDES.map((g) => `/guides/${g.slug}`),
   "/glossary",
@@ -69,6 +72,8 @@ export function getSitemapPriority(path: string): number {
   if (path === "/experts") return 0.85;
   if (path === "/guides") return 0.82;
   if (path.startsWith("/guides/")) return 0.82;
+  if (path === "/blog") return 0.85;
+  if (path.startsWith("/blog/")) return 0.82;
   if (path === "/glossary") return 0.75;
   if (path === "/contact") return 0.9;
   if (path === "/cookie-policy") return 0.3;
@@ -79,6 +84,7 @@ export function getSitemapChangeFreq(
   path: string
 ): "weekly" | "monthly" | "yearly" {
   if (path === "/") return "weekly";
+  if (path === "/blog" || path.startsWith("/blog/")) return "weekly";
   if (path.startsWith("/guides/")) return "monthly";
   if (path === "/cookie-policy") return "yearly";
   return "monthly";

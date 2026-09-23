@@ -12,9 +12,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = createMetadata({
   title:
-    "What Is a Warranty Claim Expert Witness? | UK Role & M&A Dispute Methodology",
+    "What Is a Warranty Claim Expert Witness? | Role & M&A Dispute Methodology",
   description:
-    "A warranty claim expert witness is a forensic accountant providing independent expert evidence in M&A disputes: breach of warranty, completion accounts, earn-outs, and locked box claims. UK guide.",
+    "A warranty claim expert witness is a forensic accountant providing independent expert evidence in M&A disputes: breach of warranty, completion accounts, earn-outs, and locked box claims.",
   path: "/what-is-a-warranty-claim-expert",
 });
 
@@ -43,7 +43,7 @@ export default function WhatIsPage() {
           <p>
             A warranty claim expert witness is a forensic accountant who
             provides independent expert evidence in disputes arising from
-            mergers, acquisitions, and business sales in the United Kingdom,
+            mergers, acquisitions, and business sales under English law,
             specifically where the financial position of the business at the
             time of the transaction is in dispute under an English law sale and
             purchase agreement.
